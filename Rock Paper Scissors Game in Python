@@ -1,0 +1,55 @@
+import random
+
+no_of_chances = 0
+user_points=0
+comp_points=0
+
+options=["rock","paper","scissors"]
+
+while (no_of_chances<10):
+    user_input=input("type Rock/Paper/Scissors or Q to quit: ").lower()
+    if user_input == "Q":
+        break
+
+    if user_input not in options :
+        continue
+
+    random_num = random.randint(0,2)
+
+    comp_pick = options[random_num]
+    print("computer picked", comp_pick)
+
+    if user_input == "rock" and comp_pick== "scissors":
+        print("you won")
+        user_points +=1
+
+    elif user_input == "paper" and comp_pick== "rock":
+        print("you won")
+        user_points +=1
+
+    elif user_input == "scissors" and comp_pick== "paper":
+        print("you won")
+        user_points +=1
+
+    elif user_input == comp_pick:
+        print("tie")
+
+    else:
+        print("you lost")
+        comp_points +=1
+
+    no_of_chances+=1
+    print(10-no_of_chances,"left out of","10")
+
+print("you won", user_points, "times")
+print("computer_won", comp_points, "times")
+
+if comp_points==user_points:
+    print("tie")
+elif comp_points<user_points:
+    print("you win and computer loose")
+else:
+    print("you loose and computer win")
+
+print("your score is", user_points, "and computer score is", comp_points)
+print("Goodbye!")
